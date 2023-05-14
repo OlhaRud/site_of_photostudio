@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TOKYO</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="shortcut icon" href="img/icon.ico">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    </head>
+    <style>
+        body{background:url(//atmpl.ru/design/scroll-effect/2015/movement-bg/movement-background.gif) fixed center 0px;}
+        </style>
+    <script>
+        $(document).ready(function(){
+            $("#arrow").on("click","a", function (event) {
+            event.preventDefault();
+            var id = $(this).attr('href'),
+            top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top}, 1500);
+            });
+        });
+    </script>
+    <body>
+        
+        <header class="mainheader3">
+            <nav>
+                <div class="nright">
+                    <a href="booking.html">Бронювання</a>
+                    <a href="contacts.html">Контакти</a>
+                    <a href="gallery.html">Галерея</a>
+                    <a href="index.html">Головна</a>
+                </div>
+                <div class="nleft">
+                    <a href="index.html">
+                    <span>TOKYO</span>
+                </a>
+                </div>
+            </nav>
+            <div class="sign-wrap-1">
+                <span class="sign_word">Booking</span>
+            </div>
+            <div id="arrow">
+                <a href="#content">
+                <span  class="section"></span>
+                </a>
+            </div>
+        </header>
+
+        
+            <div align="center">
+                <h1>Бронювання</h1>
+                <p>Для здійснення бронювання заповінть форму.</p>
+                <!-- label and input for lastname -->
+                <label for="lastname"><b>Прізвище</b></label>
+                <input
+                    type="text"
+                    placeholder="Введіть Прізвище"
+                    name="lastname"
+                    id="lastname"
+                    required
+                /><br>
+
+                <!-- label and input for firstname -->
+                <label for="firstname"><b>Ім'я</b></label>
+                <input
+                    type="text"
+                    placeholder="Введіть Ім'я"
+                    name="firstname"
+                    id="firstname"
+                    required
+                /><br>
+
+                <!-- label and input for email -->
+                <label for="email"><b>Номер телефону</b></label>
+                <input 
+                type="text"
+                placeholder="Введіть номер телефону"
+                name="email"
+                id="email"
+                required
+                /><br>
+
+                <!-- label and input for email -->
+                <label for="email"><b>Email</b></label>
+                <input
+                    type="text"
+                    placeholder="Enter Email"
+                    name="email"
+                    id="email"
+                    required
+                /> <br>
+                
+                 <!-- label and input for email -->
+                 <label for="hall1"><b>Зала</b></label>
+                 <select>
+                    <option disabled="disabled" selected="selected">Виберіть зал</option>
+                    <option value="hall1">Зал 1 (1000 грн за годину)</option>
+                    <option value="hall2">Зал 2 (1500 грн за годину)</option>
+                  </select>
+            </div>
+           
+          
+
+
+          
+        
+        <footer> 
+                developer: Olha Rud<br>
+                e-mail: ok23.rud.olha@vtc.vn.ua
+        </footer>
+    </body>
+</html>

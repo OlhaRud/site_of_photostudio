@@ -1,0 +1,50 @@
+<h2>Sign up</h2>
+  <form method="post" action="/registrations/">
+    {% csrf_token %}
+    
+      <p>
+        div align="center">
+               
+                <!-- label and input for lastname -->
+                <label for="lastname"><b>Прізвище</b></label>
+                <input
+                    type="text"
+                    placeholder="Введіть Прізвище"
+                    name="lastname"
+                    id="lastname"
+                    required
+                /><br>
+
+                <!-- label and input for firstname -->
+                <label for="firstname"><b>Ім'я</b></label>
+                <input
+                    type="text"
+                    placeholder="Введіть Ім'я"
+                    name="firstname"
+                    id="firstname"
+                    required
+                /><br>
+
+                <!-- label and input for email -->
+                <label for="email"><b>Номер телефону</b></label>
+                <input 
+                type="text"
+                placeholder="Введіть номер телефону"
+                name="email"
+                id="email"
+                required
+                /><br>
+
+                <!-- label and input for email -->
+                <label for="email"><b>Email</b></label>
+                <input
+                    type="text"
+                    placeholder="Enter Email"
+                    name="email"
+                    id="email"
+                    required
+                /> <br>
+      </p>
+
+    <button type="submit">Sign up</button>
+  </form>

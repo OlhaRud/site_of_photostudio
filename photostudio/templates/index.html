@@ -1,0 +1,95 @@
+{% load i18n %}
+{% load static %}
+<html>
+    <head>
+        <title>TOKYO</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="shortcut icon" href="{% static 'img/icon.ico' %}">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    </head>
+    <style>
+        body{background:url(//atmpl.ru/design/scroll-effect/2015/movement-bg/movement-background.gif) fixed center 0px;}
+        </style>
+    <script>
+        $(document).ready(function(){
+            $("#arrow").on("click","a", function (event) {
+            event.preventDefault();
+            var id = $(this).attr('href'),
+            top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top}, 1500);
+            });
+        });
+    </script>
+    <body>
+        
+        <header class="mainheader1">
+            <nav>
+                <div class="nright">
+                    <a href="booking.html">Бронювання</a>
+                    <a href="contacts.html">Контакти</a>
+                    <a href="gallery.html">Галерея</a>
+                    <a href="index.html">Головна</a>
+                </div>
+                <div class="nleft">
+                    <a href="index.html">
+                    <span>TOKYO</span>
+                </a>
+                </div>
+            </nav>
+            <div class="sign-wrap-1">
+                <span class="sign_word">TOKYO</span>
+            </div>
+            <div id="arrow">
+                <a href="#content">
+                <span  class="section"></span>
+                </a>
+            </div>
+        </header>
+  
+        <article id="content" class="content1">  
+            <h2  align="center">
+                Фотостудія «TOKYO»
+            </h2>
+            <p>
+                Затишна фотостудія «TOKYO» розташована неподалік центру міста Київ, де ви зможете влаштувати фотозйомку
+                у фотостудії з неоновими вивісками.  І це все за дуже приємною ціною. Ми цінуємо наших клієнтів, і будемо раді надати вам максимально 
+                  комфортні умови для роботи.
+            </p>
+        </article>
+
+        <article class="contentimg1">
+            <img src="{% static 'img/main1.png' %}">
+        </article>
+
+
+        <article class="contentimg2">
+            <img src="{% static 'img/main2.png' %}">
+        </article>
+
+        <article id="content" class="content2">  
+            <h2  align="center">
+               Переваги
+            </h2>
+            <p>
+                Інтелектуальне підключення: вся студія підключена до головного пульту управління iPad, включає / вимикає знаки,
+                 змінює колір освітлення, відтворює музику і багато іншого.Включені 4 змінюють колір RGB-підсвічування, щоб
+                додати об'ємності будь-якій сцені. Реквізит в комплекті. 
+            </p>
+        </article>
+
+        <article id="content" class="contentimg3">  
+            <img src="{% static 'img/main3.png' %}">
+            <img src="{% static 'img/main4.png' %}">
+            <img src="{% static 'img/main5.png' %}">
+            <img src="{% static 'img/main6.png' %}">
+            <img src="{% static 'img/main7.png' %}">
+            <img src="{% static 'img/main8.png' %}">
+        </article>
+
+
+        <footer> 
+                developer: Olha Rud<br>
+                e-mail: ok23.rud.olha@vtc.vn.ua
+        </footer>
+    </body>
+</html>

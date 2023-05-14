@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <title>TOKYO</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="shortcut icon" href="img/icon.ico">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    </head>
+    <style>
+        body{background:url(//atmpl.ru/design/scroll-effect/2015/movement-bg/movement-background.gif) fixed center 0px;}
+        </style>
+    <script>
+        $(document).ready(function(){
+            $("#arrow").on("click","a", function (event) {
+            event.preventDefault();
+            var id = $(this).attr('href'),
+            top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top}, 1500);
+            });
+        });
+    </script>
+    <body>
+        
+        <header class="mainheader3">
+            <nav>
+                <div class="nright">
+                    <a href="booking.html">Бронювання</a>
+                    <a href="contacts.html">Контакти</a>
+                    <a href="gallery.html">Галерея</a>
+                    <a href="index.html">Головна</a>
+                </div>
+                <div class="nleft">
+                    <a href="index.html">
+                    <span>TOKYO</span>
+                </a>
+                </div>
+            </nav>
+            <div class="sign-wrap-1">
+                <span class="sign_word">OUR TEAM</span>
+            </div>
+            <div id="arrow">
+                <a href="#content">
+                <span  class="section"></span>
+                </a>
+            </div>
+        </header>
+
+
+
+        <article class="ourteamcontentimg1">
+
+        </article>
+        <article id="content" class="ourteamcontent1">  
+            <h2  align="center">
+                Бан Чан
+            </h2>
+            <p>
+                <ul><li>2 години зйомки</li>
+                    <li> 2 години оренди одного із залів студії</li>
+                    <li> гримерка</li>
+                    <li> 20 відретушованих фото + всі вихідні файли з кольорокорекцією</li>
+                </ul>
+            </p>
+            <p align="center">
+                <b>Вартість 4300 грн</b>
+            </p>
+        </article>
+
+
+        <article id="content" class="ourteamcontent2">  
+            <h2  align="center">
+                Хван Хьонджин
+            </h2>
+            <p>
+                <ul><li>3 години зйомки</li>
+                    <li> 3 години оренди одного із залів студії</li>
+                    <li> гримерка</li>
+                    <li> 15 відретушованих фото + всі вихідні файли з кольорокорекцією</li>
+                </ul>
+            </p>
+            <p align="center">
+                <b>Вартість 6300 грн</b>
+            </p>
+        </article>
+
+        <article class="ourteamcontentimg2">
+
+        </article>
+
+
+        <article class="ourteamcontentimg3">
+
+        </article>
+        <article id="content" class="ourteamcontent3">  
+            <h2  align="center">
+                Лаліса Манобан
+
+            </h2>
+            <p>
+                <ul><li>2 години зйомки</li>
+                    <li> 2 години оренди одного із залів студії</li>
+                    <li> гримерка</li>
+                    <li> 30 відретушованих фото + всі вихідні файли з кольорокорекцією</li>
+                </ul>
+            </p>
+            <p align="center">
+                <b>Вартість 8000 грн</b>
+            </p>
+        </article>
+
+
+        <article id="content" class="ourteamcontent4">  
+            <h2  align="center">
+                Мін Юнгі
+            </h2>
+            <p>
+                <ul><li>3 години зйомки</li>
+                    <li> 3 години оренди одного із залів студії</li>
+                    <li> гримерка</li>
+                    <li> 45 відретушованих фото + всі вихідні файли з кольорокорекцією</li>
+                </ul>
+            </p>
+            <p align="center">
+                <b>Вартість 8800 грн</b>
+            </p>
+        </article>
+
+        <article class="ourteamcontentimg4">
+
+        </article>
+        <footer> 
+                developer: Olha Rud<br>
+                e-mail: ok23.rud.olha@vtc.vn.ua
+        </footer>
+    </body>
+</html>

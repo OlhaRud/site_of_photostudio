@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TOKYO</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="shortcut icon" href="img/icon.ico">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    </head>
+    <style>
+        body{background:url(//atmpl.ru/design/scroll-effect/2015/movement-bg/movement-background.gif) fixed center 0px;}
+        </style>
+    <script>
+        $(document).ready(function(){
+            $("#arrow").on("click","a", function (event) {
+            event.preventDefault();
+            var id = $(this).attr('href'),
+            top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top}, 1500);
+            });
+        });
+    </script>
+    <body>
+        
+        <header class="mainheader4">
+            <nav>
+                <div class="nright">
+                    <a href="booking.html">Бронювання</a>
+                    <a href="contacts.html">Контакти</a>
+                    <a href="gallery.html">Галерея</a>
+                    <a href="index.html">Головна</a>
+                </div>
+                <div class="nleft">
+                    <a href="index.html">
+                    <span>TOKYO</span>
+                </a>
+                </div>
+            </nav>
+            <div class="sign-wrap-1">
+                <span class="sign_word">CONTACTS</span>
+            </div>
+            <div id="arrow">
+                <a href="#content">
+                <span  class="section"></span>
+                </a>
+            </div>
+        </header>
+
+
+
+        
+        <article id="content" class="contacts">  
+            <h2  align="center">
+                Телефонуйте, пишіть або приїжджайте, ми завжди раді бачити вас в найшій фотостудії TOKYO!
+            </h2>
+            <p>
+                +380636799024<br>
+                photofocustudio@gmail.com<br>
+                м. Київ. вул. Антоновича 29. 8й поверх
+            </p>
+        </article>
+
+
+        <article class="contactsimg">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.320887742089!2d30.511765115125744!3d50.43512337947325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cefcef1acf9d%3A0xfec2526e8ea302f6!2z0LLRg9C7LiDQkNC90YLQvtC90L7QstC40YfQsCwgMjksIDjQuQ!5e0!3m2!1suk!2sua!4v1621785589213!5m2!1suk!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </article>
+        <footer> 
+                developer: Olha Rud<br>
+                e-mail: ok23.rud.olha@vtc.vn.ua
+        </footer>
+    </body>
+</html>

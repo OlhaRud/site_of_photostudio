@@ -7,5 +7,11 @@ from django.template.loader import render_to_string
 
 class HomeStartView(View):
     def get(self, request):
+        template = render_to_string('index.html')
+        return HttpResponse(template)
 
-        return HttpResponse('Hello Olga')
+
+class ScheduletView(View):
+    def get(self, request):
+        template = render_to_string('try_schedule.html')
+        return HttpResponse(template)
