@@ -26,8 +26,12 @@ class CalendarView(generic.ListView):
         context['calendar'] = mark_safe(html_cal)
         return context
 
-def get_date(req_day):
-    if req_day:
-        year, month = (int(x) for x in req_day.split('-'))
-        return date(year, month, day=1)
-    return datetime.today()
+    def get_date(req_day):
+        if req_day:
+            year, month = (int(x) for x in req_day.split('-'))
+            return date(year, month, day=1)
+        return datetime.today()
+    
+    class EventView(generic.ListView):
+    model = Event
+    template_name = 'try_schedule.html'

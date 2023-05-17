@@ -7,9 +7,14 @@ from django.utils.translation import gettext_lazy as _
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    lastname = models.CharField(max_length=200, null=True)
+    firstname = models.CharField(max_length=200, null=True)
+    phonenumber = models.CharField(verbose_name=_('Phone Number'), null=True, blank=True, default=1, max_length=18)
+    email = models.EmailField(max_length=200, null=True)
+    hall = models.CharField(max_length=200)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    description = models.CharField(max_length=200)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     
     def __str__(self):

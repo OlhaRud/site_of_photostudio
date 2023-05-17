@@ -53,66 +53,97 @@
         </header>
 
         
-            <div align="center">
-                <h1>Бронювання</h1>
-                <p>Для здійснення бронювання заповінть форму.</p>
-                <!-- label and input for lastname -->
-                <label for="lastname"><b>Прізвище</b></label>
-                <input
-                    type="text"
-                    placeholder="Введіть Прізвище"
-                    name="lastname"
-                    id="lastname"
-                    required
-                /><br>
-
-                <!-- label and input for firstname -->
-                <label for="firstname"><b>Ім'я</b></label>
-                <input
-                    type="text"
-                    placeholder="Введіть Ім'я"
-                    name="firstname"
-                    id="firstname"
-                    required
-                /><br>
-
-                <!-- label and input for email -->
-                <label for="email"><b>Номер телефону</b></label>
-                <input 
+        <div align="center">
+            <h1>Бронювання</h1>
+            <p>Для здійснення бронювання заповінть форму.</p>
+            <!-- label and input for lastname -->
+            <label for="title"><b>Назва події</b></label>
+            <input
                 type="text"
-                placeholder="Введіть номер телефону"
+                placeholder="Введіть назву події"
+                name="title"
+                id="title"
+                required
+            /><br>
+            
+            <!-- label and input for lastname -->
+            <label for="lastname"><b>Прізвище</b></label>
+            <input
+                type="text"
+                placeholder="Введіть Прізвище"
+                name="lastname"
+                id="lastname"
+                required
+            /><br>
+
+            <!-- label and input for firstname -->
+            <label for="firstname"><b>Ім'я</b></label>
+            <input
+                type="text"
+                placeholder="Введіть Ім'я"
+                name="firstname"
+                id="firstname"
+                required
+            /><br>
+
+            <!-- label and input for email -->
+            <label for="phonenumber"><b>Номер телефону</b></label>
+            <input 
+            type="text"
+            name="phonenumber"
+            id="phonenumber"
+            placeholder="Введіть номер телефону"
+            required
+            /><br>
+
+            <!-- label and input for email -->
+            <label for="email"><b>Email</b></label>
+            <input
+                type="email"
                 name="email"
                 id="email"
+                placeholder="Введіть email"
                 required
-                /><br>
+            /> <br>
+            
+             <!-- label and input for email -->
+             <label><b>Зала</b></label>
+             <select>
+                <option disabled="disabled" selected="selected" required>Виберіть зал</option>
+                <option value="hall1">Зал 1 (1000 грн за годину)</option>
+                <option value="hall2">Зал 2 (1500 грн за годину)</option>
+              </select> <br>
 
-                <!-- label and input for email -->
-                <label for="email"><b>Email</b></label>
-                <input
-                    type="text"
-                    placeholder="Enter Email"
-                    name="email"
-                    id="email"
-                    required
-                /> <br>
-                
-                 <!-- label and input for email -->
-                 <label for="hall1"><b>Зала</b></label>
-                 <select>
-                    <option disabled="disabled" selected="selected">Виберіть зал</option>
-                    <option value="hall1">Зал 1 (1000 грн за годину)</option>
-                    <option value="hall2">Зал 2 (1500 грн за годину)</option>
-                  </select>
-            </div>
+              <!-- label and input for email -->
+              <label><b>Вкажіть початок бронювання</b></label>
+              <input type="datetime-local" id="localdate" name="date" required />
+              <br>
+
+              <!-- label and input for email -->
+              <label><b>Вкажіть кінець бронювання</b></label>
+              <input type="datetime-local" id="localdate" name="date" required />
+              <br>
+
+               <!-- label and input for email -->
+            <label for="phonenumber"><b>Опис</b></label>
+            <textarea 
+            type="text"
+            name="phonenumber"
+            id="phonenumber"
+            placeholder="Вкажіть опис події"
+            required
+            ></textarea><br>
+        </div>
             <div class="container">
                 <h1>Olha Rud datepicker</h1>
                 <div>
                     <p>Виберіть дату/час:</p>
                     <div id="selected-dates"></div>
+                    {{ calendar }}
                 </div>
-                {{ calendar }}
                 
-              </div>
+                
+            </div>
           
 
 
