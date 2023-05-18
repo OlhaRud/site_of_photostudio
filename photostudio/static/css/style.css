@@ -468,4 +468,14 @@ body::-webkit-scrollbar {
     line-height: 2;
   }
 
-  
+  /* нові стилі*/
+ table .calendar{
+    font-size: 14px;
+  border: 1px solid #ed0000;
+  text-align: center;
+  color: #7f63ff;
+  }
+
+  element.style {
+    font-size: 12px;
+}
