@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import HomeStartView, ScheduletView
-from schedule_e.views import CalendarView
+from schedule_e.views import CalendarView, EventView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeStartView.as_view(), name='home_start'),
     path('schedule/', CalendarView.as_view(), name='schedule'),
+    path('events/', EventView.as_view(), name='events'),
 
 ]
+
