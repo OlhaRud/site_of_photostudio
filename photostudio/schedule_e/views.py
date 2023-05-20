@@ -1,15 +1,14 @@
 # Create your views here.
 from datetime import datetime
 from django.shortcuts import render
-from django.http import HttpResponse
+
 from django.views import generic
 from django.views import View
 from django.utils.safestring import mark_safe
-from django.http import HttpResponse, HttpRequest
+from django.http import JsonResponse
 from django.shortcuts import redirect
 from .models import *
 from .utils import Calendar
-from datetime import date
 from .forms import EventForm
 
 
@@ -29,7 +28,7 @@ class CalendarView(generic.ListView):
         # Call the formatmonth method, which returns our calendar as a table
         html_cal = cal.formatmonth(withyear=True)
         context['calendar'] = mark_safe(html_cal)
-        context['event_form'] = EventForm()
+
         return context
 
     def get_date(self, req_day):
@@ -47,17 +46,45 @@ class EventView(View):
 
     def post(self, request):
         post = request.POST
-        title = post.get('title')
-        lastname = post.get('lastname')
-        firstname = post.get('firstname')
-        phonenumber = post.get('phonenumber')
-        email = post.get('email')
-        datebegin = post.get('datebegin')
-        dateend = post.get('dateend')
-        description = post.get('description')
-        event, create = Event.objects.update_or_create(title=title, lastname=lastname, firstname=firstname,
-                                                       phonenumber=phonenumber, email=email, start_time=datebegin,
-                                                       end_time=dateend, description=description, user=request.user
-                                                      )
+        id_pk = post.get('id_pk')
+        if id_pk is None:
+            title = post.get('title')
+            lastname = post.get('lastname')
+            firstname = post.get('firstname')
+            phonenumber = post.get('phonenumber')
+            email = post.get('email')
+            datebegin = post.get('datebegin')
+            dateend = post.get('dateend')
+            description = post.get('description')
+            event, create = Event.objects.update_or_create(title=title, lastname=lastname, firstname=firstname,
+                                                           phonenumber=phonenumber, email=email, start_time=datebegin,
+                                                           end_time=dateend, description=description, user=request.user)
+        else:
+            event = Event.objects.get(pk=id_pk)
+            post = request.POST
+            event.title = post.get('title')
+            event.lastname = post.get('lastname')
+            event.firstname = post.get('firstname')
+            event.phonenumber = post.get('phonenumber')
+            event.email = post.get('email')
+            event.start_time = post.get('datebegin')
+            event.end_time = post.get('dateend')
+            event.description = post.get('description')
+            event.save()
         return redirect('schedule')
 
+
+class GetEventAJAX(View):
+    def post(self, request):
+        event = Event.objects.get(pk=request.POST.get('event_id'))
+        id_pk = event.pk
+        title = event.title
+        lastname = event.lastname
+        firstname = event.firstname
+        phonenumber = event.phonenumber
+        email = event.email
+        datebegin = event.start_time
+        dateend = event.end_time
+        description = event.description
+        return JsonResponse({'id_pk': id_pk, 'title': title, 'lastname': lastname, 'firstname': firstname, 'phonenumber': phonenumber,
+                             'email': email, 'datebegin': datebegin, 'dateend': dateend, 'description': description})

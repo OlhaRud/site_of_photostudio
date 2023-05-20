@@ -5,12 +5,15 @@
     <head>
         <title>TOKYO</title>
         <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+
      
         <link rel="shortcut icon" href="img/icon.ico">
         
         <!--java script section-->
         
-        <script type="text/javascript" src="{%static '/js/jquery-3.5.1.slim.min.js'  %}"></script>
+        <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'  %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
         
     </head>
     <style>
@@ -25,6 +28,40 @@
             $('body,html').animate({scrollTop: top}, 1500);
             });
         });
+
+        function showevent(id){
+            csrftoken = $("input[name='csrfmiddlewaretoken']").val();
+
+            //alert(id+"__"+csrftoken);
+            data= {event_id: id};
+            $.ajax({
+                url: "/event/ajax/",
+                data : data,
+                method : 'POST',
+                headers: {
+                              'X-CSRFToken': csrftoken
+                         },
+                success: function (data) {
+                   console.log(data);
+                   $($(".jquery-modal.blocker.current #id_pk")[0]).val(data.id_pk);
+                   $($(".jquery-modal.blocker.current #title")[0]).val(data.title);
+                   $($(".jquery-modal.blocker.current #lastname")[0]).val(data.lastname);
+                   $($(".jquery-modal.blocker.current #firstname")[0]).val(data.firstname);
+                   $($(".jquery-modal.blocker.current #phonenumber")[0]).val(data.phonenumber);
+
+                   $($(".jquery-modal.blocker.current #email")[0]).val(data.email);
+                   dateb = new Date(data.datebegin);
+                   datee = new Date(data.dateend);
+                   $($(".jquery-modal.blocker.current #datebegin")[0]).val(dateb.toISOString().slice(0, 19));
+                   $($(".jquery-modal.blocker.current #dateend")[0]).val(datee.toISOString().slice(0, 19));
+                   $($(".jquery-modal.blocker.current #description")[0]).val(data.description);
+                },
+                error: function (data) {concole.log(data)}
+            });
+            $('#add-event-form').modal();
+
+          }
+
     </script>
     <body>
         
@@ -45,6 +82,7 @@
             <div class="sign-wrap-1">
                 <span class="sign_word">Booking</span>
             </div>
+
             {% comment %} <div id="arrow">
                 <a href="#content">
                 <span  class="section"></span>
@@ -138,18 +176,100 @@
                 ></textarea><br>
                 <input type="submit" value="Забронювати">
             </form>
+
+            <form action="/events/" method="post" class="modal" id="add-event-form">
+                {% csrf_token %}
+                <input type="hidden" id="id_pk" name="id_pk">
+                <input
+                    type="text"
+                    placeholder="Введіть назву події"
+                    name="title"
+                    id="title"
+                    required
+                /><br>
+
+                <!-- label and input for lastname -->
+                <label for="lastname"><b>Прізвище</b></label>
+                <input
+                    type="text"
+                    placeholder="Введіть Прізвище"
+                    name="lastname"
+                    id="lastname"
+                    required
+                /><br>
+
+                <!-- label and input for firstname -->
+                <label for="firstname"><b>Ім'я</b></label>
+                <input
+                    type="text"
+                    placeholder="Введіть Ім'я"
+                    name="firstname"
+                    id="firstname"
+                    required
+                /><br>
+
+                <!-- label and input for email -->
+                <label for="phonenumber"><b>Номер телефону</b></label>
+                <input
+                type="text"
+                name="phonenumber"
+                id="phonenumber"
+                placeholder="Введіть номер телефону"
+                required
+                /><br>
+
+                <!-- label and input for email -->
+                <label for="email"><b>Email</b></label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Введіть email"
+                    required
+                /> <br>
+
+                 <!-- label and input for email -->
+                 <label><b>Зала</b></label>
+                 <select>
+                    <option disabled="disabled" selected="selected" required>Виберіть зал</option>
+                    <option value="hall1">Зал 1 (1000 грн за годину)</option>
+                    <option value="hall2">Зал 2 (1500 грн за годину)</option>
+                  </select> <br>
+
+                  <!-- label and input for email -->
+                  <label><b>Вкажіть початок бронювання</b></label>
+                  <input type="datetime-local" id="datebegin" name="datebegin" required />
+                  <br>
+
+                  <!-- label and input for email -->
+                  <label><b>Вкажіть кінець бронювання</b></label>
+                  <input type="datetime-local" id="dateend" name="dateend" required />
+                  <br>
+
+                   <!-- label and input for email -->
+                <label for="description"><b>Опис</b></label>
+                <textarea
+                type="text"
+                name="description"
+                id="description"
+                placeholder="Вкажіть опис події"
+                required
+                ></textarea><br>
+                <input type="submit" value="Забронювати">
+            </form>
         </div>
             <div class="container">
                 <h1>Olha Rud datepicker</h1>
-                <div class="bookingcalendar">
-                    
-                   
-                        {{ calendar }}
-                    
+                <div>
+                    <p>Виберіть дату/час:</p>
+                    <div id="selected-dates"></div>
+                    {{ calendar }}
                 </div>
+                
+                
             </div>
           
-           
+
 
           
         
