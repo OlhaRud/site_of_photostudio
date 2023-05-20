@@ -15,3 +15,4 @@ class EventForm(forms.Form):
     #user = forms.ForeignKey(User, on_delete=forms.SET_NULL, null=True)
 
 
+
