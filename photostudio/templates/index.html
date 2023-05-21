@@ -1,96 +1,124 @@
 {% load i18n %}
 {% load static %}
+<!DOCTYPE html>
 <html>
     <head>
         <title>TOKYO</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link rel="shortcut icon" href="{% static 'img/icon.ico' %}">
-        <script type="text/javascript" src="{%static '/js/jquery-3.7.1.slim.min.js'%}"></script>
-       <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
-    </head>
-    <style>
-        body{background:url(//atmpl.ru/design/scroll-effect/2015/movement-bg/movement-background.gif) fixed center 0px;}
-        </style>
-    <script>
-        $(document).ready(function(){
-            $("#arrow").on("click","a", function (event) {
-            event.preventDefault();
-            var id = $(this).attr('href'),
-            top = $(id).offset().top;
-            $('body,html').animate({scrollTop: top}, 1500);
-            });
-        });
-    </script>
-    <body>
         
-    <header class="mainheader1">
-        <nav>
-            <div class="nright">
-                <a href="booking.html">Бронювання</a>
-                <a href="contacts.html">Контакти</a>
-                <a href="gallery.html">Галерея</a>
-                <a href="index.html">Головна</a>
-            </div>
-                <div class="nleft">
-                    <a href="index.html">
-                    <span>TOKYO</span>
-                </a>
+        
+        <!--java script section-->
+        <script type="text/javascript" src="{%static '/js/jquery-3.7.1.slim.min.js'%}"></script>
+        <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <header class="main-page">
+            <nav>
+                <div class="logo">
+                    TOKYO.
                 </div>
+                <div class="icon">
+                    <span class="toggle">☰</span>
+                </div>
+                <div >
+                <ul class="list-item">
+                    <li><a href="#">Головна</a></li>
+                    <li><a href="#">Зали</a></li>
+                    <li><a href="#">Контакти</a></li>
+                    <li><a href="#">Бронювання</a></li>
+                </ul></div>
             </nav>
-            <div class="sign-wrap-1">
-                <span class="sign_word">TOKYO</span>
-            </div>
-            <div id="arrow">
-                <a href="#content">
-                <span  class="section"></span>
-                </a>
+            <div class="maincover">
+                <h1 class="maincoverlogo">TOKYO.</h1>
+                <h3>Capture the moment. Preserve it. Revive the Memories.</h3>
+                <button type="button" class="moreinfo">Дізнатись більше</button>
+                <button type="button" class="booknow">Забронювати зараз</button>
+           
             </div>
         </header>
   
-        <article id="content" class="content1">  
-            <h2  align="center">
-                Фотостудія «TOKYO»
-            </h2>
-            <p>
-                Затишна фотостудія «TOKYO» розташована неподалік центру міста Київ, де ви зможете влаштувати фотозйомку
-                у фотостудії з неоновими вивісками.  І це все за дуже приємною ціною. Ми цінуємо наших клієнтів, і будемо раді надати вам максимально 
-                  комфортні умови для роботи.
-            </p>
-        </article>
+        <section class="content">
+            <div class="section-text-left">
+                <div>
+                    <h2>
+                        ПРО НАС
+                    </h2>
+                    <p>
+                        Ми - команда професіоналів, які працюють в сфері фотографії
+                        та візуального мистецтва вже протягом багатьох років. 
+                        Наша фотостудія є не просто місцем для створення чудових
+                        зображень, але й простором, де ми надаємо умови оренди для
+                        творчих і професійних фотографів.
+                    </p>
+                </div>
+              <img src="{%static 'img/main/article1.jpg' %}" alt="Фото">
+            </div>
+        
+            <div class="section-achievements">
+                <h2>
+                    ЧИМ МИ ПИШАЄМОСЬ?
+                </h2>
+            
+                <div class="studio-achievements">
+                    <div class="achievement">
+                        <h4>1 000+</h4>
+                        <p>постійних<br> клієнтів</p>
+                    </div>
+                    <div class="achievement">
+                        <h4>20 000+</h4>
+                        <p>фотозйомок<br> в залах</p>
+                    </div>
+                    <div class="achievement">
+                        <h4>5+</h4>
+                        <p>років надаємо<br> послуги</p>
+                    </div>
+                    <div class="achievement">
+                        <h4>200+</h4>
+                        <p>бронювань<br> кожного місяця</p>
+                    </div>
+                </div>
+            </div>
 
-        <article class="contentimg1">
-            <img src="{% static 'img/main1.png' %}">
-        </article>
+            <div class="section-text-right">
+                <img src="{%static 'img/main/article3.jpg' %}" alt="Фото">
+                <div>
+                    <h2>
+                        ОРЕНДА ЗАЛУ
+                    </h2>
+                    <p>
+                        Наша фотостудія пропонує оренду залу для фотозйомки
+                        зі зручним розташуванням, сучасним обладнанням та гнучким 
+                        графіком роботи. Ви зможете легко бронювати зал онлайн і
+                        вибрати ідеальне середовище для вашої фотосесії.
+                    </p>
+                    <button type="button" class="booknow">Забронювати зараз</button>
+                </div>    
+            </div>
+            
+            <div class="section4">
+                <div class="gallery">
+                    <img src="{%static 'img/main/galery1.jpg' %}" alt="Фото">
+                    <img src="{%static 'img/main/galery2.jpg' %}" alt="Фото">
+                    <img src="{%static 'img/main/galery3.jpg' %}" alt="Фото">
+                    <img src="{%static 'img/main/galery4.jpg' %}" alt="Фото">
+                </div>
+                <button type="button" class="booknow">Переглянути зали</button>
+            </div>
+        </section>
 
 
-        <article class="contentimg2">
-            <img src="{% static 'img/main2.png' %}">
-        </article>
-
-        <article id="content" class="content2">  
-            <h2  align="center">
-               Переваги
-            </h2>
-            <p>
-                Інтелектуальне підключення: вся студія підключена до головного пульту управління iPad, включає / вимикає знаки,
-                 змінює колір освітлення, відтворює музику і багато іншого.Включені 4 змінюють колір RGB-підсвічування, щоб
-                додати об'ємності будь-якій сцені. Реквізит в комплекті. 
-            </p>
-        </article>
-
-        <article id="content" class="contentimg3">  
-            <img src="{% static 'img/main3.png' %}">
-            <img src="{% static 'img/main4.png' %}">
-            <img src="{% static 'img/main5.png' %}">
-            <img src="{% static 'img/main6.png' %}">
-            <img src="{% static 'img/main7.png' %}">
-            <img src="{% static 'img/main8.png' %}">
-        </article>
-
-
-        <footer> 
-                developer: Olha Rud<br>
-                e-mail: ok23.rud.olha@vtc.vn.ua
-        </footer>
+        <footer>
+            <p class="sign">© 2023 Tokyo., Inc</p>
+            <ul class="nav-footer-item">
+                <li><a href="#" class="contacts-sign"><b>Contact us</a></li>
+                <li><a href="#">tokyo.photostudio@gmail.com</a></li>
+                <li><a href="#">+99 35-233-599</a></li>
+            </ul>
+          </footer>
     </body>
 </html>
