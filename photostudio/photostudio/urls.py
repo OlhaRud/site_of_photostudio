@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from home.views import HomeStartView, ScheduletView
+from django.views.generic import TemplateView
+from home.views import HomeStartView
 from schedule_e.views import CalendarView, EventView, GetEventAJAX
 
 urlpatterns = [
@@ -24,6 +25,8 @@ urlpatterns = [
     path('', HomeStartView.as_view(), name='home_start'),
     path('schedule/', CalendarView.as_view(), name='schedule'),
     path('events/', EventView.as_view(), name='events'),
+    path('contacts/', TemplateView.as_view(template_name='contacts.html'), name='contacts'),
+    path('halls/', TemplateView.as_view(template_name='halls.html'), name='halls'),
     path('event/ajax/', GetEventAJAX.as_view(), name='event_ajax'),
 
 ]

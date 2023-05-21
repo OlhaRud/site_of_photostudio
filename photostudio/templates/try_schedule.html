@@ -17,15 +17,6 @@
         
     </head>
     <script>
-        $(document).ready(function(){
-            $("#arrow").on("click","a", function (event) {
-            event.preventDefault();
-            var id = $(this).attr('href'),
-            top = $(id).offset().top;
-            $('body,html').animate({scrollTop: top}, 1500);
-            });
-        });
-
         function showevent(id){
             csrftoken = $("input[name='csrfmiddlewaretoken']").val();
 
@@ -62,7 +53,7 @@
     </script>
     <body>
         
-        <header class="mainheader3">
+        <header class="main-page">
             <nav>
                 <div class="nright">
                     <a href="booking.html">Бронювання</a>
@@ -254,7 +245,6 @@
                 ></textarea><br>
                 <input type="submit" value="Забронювати">
             </form>
-        </div>
             <div class="container">
                 <h1>Olha Rud datepicker</h1>
                 <div>
@@ -262,14 +252,8 @@
                     <div id="selected-dates"></div>
                     {{ calendar }}
                 </div>
-                
-                
             </div>
-          
-
-
-          
-        
+        </div>
         <footer> 
                 developer: Olha Rud<br>
                 e-mail: ok23.rud.olha@vtc.vn.ua

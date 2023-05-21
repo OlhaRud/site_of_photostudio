@@ -9,10 +9,11 @@
         
         
         <!--java script section-->
-        <script type="text/javascript" src="{%static '/js/jquery-3.7.1.slim.min.js'%}"></script>
+        <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'%}"></script>
         <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       
         <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -27,10 +28,10 @@
                 </div>
                 <div >
                 <ul class="list-item">
-                    <li><a href="#">Головна</a></li>
+                    <li><a href="{%url 'home_start'%}">Головна</a></li>
                     <li><a href="#">Зали</a></li>
-                    <li><a href="#">Контакти</a></li>
-                    <li><a href="#">Бронювання</a></li>
+                    <li><a href="{%url 'contacts'%}">Контакти</a></li>
+                    <li><a href="{%url 'schedule'%}">Бронювання</a></li>
                 </ul></div>
             </nav>
             <div class="maincover">

@@ -34,7 +34,7 @@ header {
 
 .main-page{
     background-color: #232323;
-    background-image: url('statiс/img/main/maincover.jpg');
+    background-image: url('/static/img/main/maincover.jpg');
 }
 
 .hall-page{

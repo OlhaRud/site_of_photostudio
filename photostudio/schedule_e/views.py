@@ -88,3 +88,4 @@ class GetEventAJAX(View):
         description = event.description
         return JsonResponse({'id_pk': id_pk, 'title': title, 'lastname': lastname, 'firstname': firstname, 'phonenumber': phonenumber,
                              'email': email, 'datebegin': datebegin, 'dateend': dateend, 'description': description})
+
