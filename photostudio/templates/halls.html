@@ -4,69 +4,112 @@
 <html>
     <head>
         <title>TOKYO</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="shortcut icon" href="{% static 'img/icon.ico' %}">
         
-        <link rel="shortcut icon" href="img/icon.ico">
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        
+        <!--java script section-->
+        <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'%}"></script>
+        <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       
+        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <style>
-        body{background:url(//atmpl.ru/design/scroll-effect/2015/movement-bg/movement-background.gif) fixed center 0px;}
-        </style>
-    <script>
-        $(document).ready(function(){
-            $("#arrow").on("click","a", function (event) {
-            event.preventDefault();
-            var id = $(this).attr('href'),
-            top = $(id).offset().top;
-            $('body,html').animate({scrollTop: top}, 1500);
-            });
-        });
-    </script>
     <body>
-        
-        <header class="mainheader2">
+        <header class="hall-page">
             <nav>
-                <div class="nright">
-                    <a href="booking.html">Бронювання</a>
-                    <a href="contacts.html">Контакти</a>
-                    <a href="gallery.html">Галерея</a>
-                    <a href="index.html">Головна</a>
+                <div class="logo">
+                    TOKYO.
                 </div>
-                <div class="nleft">
-                    <a href="index.html">
-                    <span>TOKYO</span>
-                </a>
+                <div class="icon">
+                    <span class="toggle">☰</span>
+                </div>
+                <div>
+                    <ul class="list-item">
+                        <li><a href="{%url 'home_start'%}">Головна</a></li>
+                        <li><a href="{%url 'halls'%}">Зали</a></li>
+                        <li><a href="{%url 'contacts'%}">Контакти</a></li>
+                        <li><a href="{%url 'booking'%}">Бронювання</a></li>
+                    </ul>
                 </div>
             </nav>
-            <div class="sign-wrap-1">
-                <span class="sign_word">GALLERY</span>
-            </div>
-            <div id="arrow">
-                <a href="#content">
-                <span  class="section"></span>
-                </a>
+            <div class="maincover">
+                <h1 class="maincoverlogo"> Зали.</h1>
+                <h3>Capture the moment. Preserve it. Revive the Memories.</h3>
+                <button type="button" class="moreinfo">Дізнатись більше</button>
+                <button type="button" class="booknow">Забронювати зараз</button>
+           
             </div>
         </header>
   
-        <article id="content" class="contentimg11">
-            <img src="img/gallery1.png">
-            <img src="img/gallery2.png">
-            <img src="img/gallery3.png">
-            <img src="img/gallery4.png">
-            <img src="img/gallery5.png">
-            <img src="img/gallery6.png">
-            <img src="img/gallery7.png">
-            <img src="img/gallery8.png">
-            <img src="img/gallery9.png">
-            <img src="img/gallery10.png">
-            <img src="img/gallery11.png">
-            <img src="img/gallery12.png">
-        </article>
+        <section class="content">
+            <div class="section">
+                <h2>
+                   НАШІ ЗАЛИ
+                </h2>
+                <p>
+                    У нашої фотостудії є два зали великий та малий. Ми надаємо послуги оренди залів для
+                    фотосесій і має в своєму розпорядженні реквізити та інвентар, необхідні для проведення
+                     фотосесій.Завдяки цим факторам, клієнти мають змогу здійснювати якісні фото- та відеозйомку.
+                </p>
+            </div>
 
+            <img src="img/halls/planofstudio.jpg" alt="Фото">
 
-        <footer> 
-                developer: Olha Rud<br>
-                e-mail: ok23.rud.olha@vtc.vn.ua
-        </footer>
+            <div class="section-text-right">
+                <img src="{%static 'img/halls/bighall.jpg' %}" alt="Фото">
+                <div>
+                    <h2>
+                        ВЕЛИКИЙ ЗАЛ
+                    </h2>
+                    <p>
+                        Просторий  зал, який дозволяє проводити великі фото- та відео- зйомки, а також вільно рухатися та експериментувати з ракурсами. 
+                        Архітектурні особливості забезпечують чудове природне освітлення,
+                        що додасть Вашим фотографіям природність і виразність.
+                    </p>
+                    
+                </div>    
+            </div>
+            
+            <div class="section-text-left">
+                <div>
+                    <h2>
+                        МАЛИЙ ЗАЛ 
+                    </h2>
+                    <p>
+                        Цей зал ідеально підходить для невеликих фотозйомок до 8 людей.
+                        Це приміщення, яке створює затишну атмосферу для Вас і вашої команди.
+                        Ви зможете зосередитися на деталях і отримати якісні фотографії.
+                         Цей зал є ідеальним вибором для портретів, 
+                        фешн-зйомок та інших проєктів.
+                    </p>
+                </div>
+              <img src="{%static 'img/halls/smallhall.jpg' %}" alt="Фото">
+            </div>
+            <div class="section">
+                <h2>
+                   ЯК ОБРАТИ?
+                </h2>
+                <p>
+                   Вибір зали залежить від виду та розміру фото- чи відео- зйомки, 
+                   а також від кількості людей які приймають участь в фотозйомці.
+                   Ми радимо обирати малий зал для портретних, предметни чи фешн зйомок участь в яких приймають до 8 людей,
+                   якщо кількість людей більша - велику. Велика зала може вмістити в себе близько 30 людей. 
+                   Але, звісно, все залежить від ваших потреб та вподобань.
+                </p>
+            </div>
+            <img src="{%static 'img/halls/photoshoot.jpg' %}" alt="Фото">
+        </section>
+        <footer>
+            <p class="sign">© 2023 Tokyo., Inc</p>
+            <ul class="nav-footer-item">
+                <li><a href="#" class="contacts-sign"><b>Contact us</a></li>
+                <li><a href="#">tokyo.photostudio@gmail.com</a></li>
+                <li><a href="#">+99 35-233-599</a></li>
+            </ul>
+           
+          </footer>
     </body>
 </html>

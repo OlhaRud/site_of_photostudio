@@ -17,6 +17,7 @@
         <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
+    
     <body>
         <header class="main-page">
             <nav>
@@ -26,13 +27,14 @@
                 <div class="icon">
                     <span class="toggle">☰</span>
                 </div>
-                <div >
-                <ul class="list-item">
-                    <li><a href="{%url 'home_start'%}">Головна</a></li>
-                    <li><a href="#">Зали</a></li>
-                    <li><a href="{%url 'contacts'%}">Контакти</a></li>
-                    <li><a href="{%url 'schedule'%}">Бронювання</a></li>
-                </ul></div>
+                <div>
+                    <ul class="list-item">
+                        <li><a href="{%url 'home_start'%}">Головна</a></li>
+                        <li><a href="{%url 'halls'%}">Зали</a></li>
+                        <li><a href="{%url 'contacts'%}">Контакти</a></li>
+                        <li><a href="{%url 'booking'%}">Бронювання</a></li>
+                    </ul>
+            </div>
             </nav>
             <div class="maincover">
                 <h1 class="maincoverlogo">TOKYO.</h1>

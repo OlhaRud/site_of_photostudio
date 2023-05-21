@@ -4,70 +4,76 @@
 <html>
     <head>
         <title>TOKYO</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="shortcut icon" href="img/icon.ico">
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    </head>
-    <style>
-        body{background:url(//atmpl.ru/design/scroll-effect/2015/movement-bg/movement-background.gif) fixed center 0px;}
-        </style>
-    <script>
-        $(document).ready(function(){
-            $("#arrow").on("click","a", function (event) {
-            event.preventDefault();
-            var id = $(this).attr('href'),
-            top = $(id).offset().top;
-            $('body,html').animate({scrollTop: top}, 1500);
-            });
-        });
-    </script>
-    <body>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="shortcut icon" href="{% static 'img/icon.ico' %}">
         
-        <header class="mainheader4">
+        
+        <!--java script section-->
+        <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'%}"></script>
+        <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       
+        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <header class="contacts-page">
             <nav>
-                <div class="nright">
-                    <a href="booking.html">Бронювання</a>
-                    <a href="contacts.html">Контакти</a>
-                    <a href="gallery.html">Галерея</a>
-                    <a href="index.html">Головна</a>
+                <div class="logo">
+                    TOKYO.
                 </div>
-                <div class="nleft">
-                    <a href="index.html">
-                    <span>TOKYO</span>
-                </a>
+                <div class="icon">
+                    <span class="toggle">☰</span>
+                </div>
+                <div>
+                    <ul class="list-item">
+                        <li><a href="{%url 'home_start'%}">Головна</a></li>
+                        <li><a href="{%url 'halls'%}">Зали</a></li>
+                        <li><a href="{%url 'contacts'%}">Контакти</a></li>
+                        <li><a href="{%url 'booking'%}">Бронювання</a></li>
+                    </ul>
                 </div>
             </nav>
-            <div class="sign-wrap-1">
-                <span class="sign_word">CONTACTS</span>
-            </div>
-            <div id="arrow">
-                <a href="#content">
-                <span  class="section"></span>
-                </a>
+            <div class="maincover">
+                <h1 class="maincoverlogo">КОНТАКТИ.</h1>
+                <h3>Capture the moment. Preserve it. Revive the Memories.</h3>
+                <button type="button" class="moreinfo">Дізнатись більше</button>
+                <button type="button" class="booknow">Забронювати зараз</button>
+           
             </div>
         </header>
 
 
+        <section class="content">
+            <div class="section-text-left">
+                <div>
+                    <h2>
+                        ДЕ МИ ЗНАХОДИМОСЬ?
+                    </h2>
+                    <p>
+                        Наша фотостудія розташована в самому центрі міста Києва на вулиці Антоновича 20.
+                    </p>
+                    <p> Студія працює без вихідних: 9:00 - 18:00</p>   
+                    <p> Залишились питання?<br> Зателефонуйте нам: +99 35-233-599
+                       або надішліть лист на пошту: tokyo.photostudio@gmail.com
+                    </p>    
+                    
+                </div>
+                <article class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.320887742089!2d30.511765115125744!3d50.43512337947325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cefcef1acf9d%3A0xfec2526e8ea302f6!2z0LLRg9C7LiDQkNC90YLQvtC90L7QstC40YfQsCwgMjksIDjQuQ!5e0!3m2!1suk!2sua!4v1621785589213!5m2!1suk!2sua"  height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </article>
+            </div>
+        </section>
 
-        
-        <article id="content" class="contacts">  
-            <h2  align="center">
-                Телефонуйте, пишіть або приїжджайте, ми завжди раді бачити вас в найшій фотостудії TOKYO!
-            </h2>
-            <p>
-                +380636799024<br>
-                photofocustudio@gmail.com<br>
-                м. Київ. вул. Антоновича 29. 8й поверх
-            </p>
-        </article>
-
-
-        <article class="contactsimg">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.320887742089!2d30.511765115125744!3d50.43512337947325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cefcef1acf9d%3A0xfec2526e8ea302f6!2z0LLRg9C7LiDQkNC90YLQvtC90L7QstC40YfQsCwgMjksIDjQuQ!5e0!3m2!1suk!2sua!4v1621785589213!5m2!1suk!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </article>
-        <footer> 
-                developer: Olha Rud<br>
-                e-mail: ok23.rud.olha@vtc.vn.ua
-        </footer>
+        <footer>
+            <p class="sign">© 2023 Tokyo., Inc</p>
+            <ul class="nav-footer-item">
+                <li><a href="#" class="contacts-sign"><b>Contact us</a></li>
+                <li><a href="#">tokyo.photostudio@gmail.com</a></li>
+                <li><a href="#">+99 35-233-599</a></li>
+            </ul>
+           
+          </footer>
     </body>
 </html>

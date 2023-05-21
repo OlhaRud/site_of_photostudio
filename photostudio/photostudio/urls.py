@@ -23,7 +23,7 @@ from schedule_e.views import CalendarView, EventView, GetEventAJAX
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeStartView.as_view(), name='home_start'),
-    path('schedule/', CalendarView.as_view(), name='schedule'),
+    path('booking/', CalendarView.as_view(), name='booking'),
     path('events/', EventView.as_view(), name='events'),
     path('contacts/', TemplateView.as_view(template_name='contacts.html'), name='contacts'),
     path('halls/', TemplateView.as_view(template_name='halls.html'), name='halls'),

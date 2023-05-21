@@ -10,11 +10,12 @@ from django.shortcuts import redirect
 from .models import *
 from .utils import Calendar
 from .forms import EventForm
+from datetime import date
 
 
 class CalendarView(generic.ListView):
     model = Event
-    template_name = 'try_schedule.html'
+    template_name = 'booking.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -37,9 +38,10 @@ class CalendarView(generic.ListView):
             return date(year, month, day=1)
         return datetime.today()
     
-    class EventView(generic.ListView):
-        model = Event
-        template_name = 'try_schedule.html'
+
+# class EventView(generic.ListView):
+#     model = Event
+#     template_name = 'try_schedule.html'
 
 
 class EventView(View):

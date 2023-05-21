@@ -4,17 +4,18 @@
 <html>
     <head>
         <title>TOKYO</title>
-        <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
-
-     
-        <link rel="shortcut icon" href="img/icon.ico">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="shortcut icon" href="{% static 'img/icon.ico' %}">
+        
         
         <!--java script section-->
-        
+        <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
         <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'  %}"></script>
+        <!--jquery script section-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-        
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <script>
         function showevent(id){
@@ -52,41 +53,39 @@
 
     </script>
     <body>
-        
-        <header class="main-page">
+        <header class="booking-page">
             <nav>
-                <div class="nright">
-                    <a href="booking.html">Бронювання</a>
-                    <a href="contacts.html">Контакти</a>
-                    <a href="gallery.html">Галерея</a>
-                    <a href="index.html">Головна</a>
+                <div class="logo">
+                    TOKYO.
                 </div>
-                <div class="nleft">
-                    <a href="index.html">
-                    <span>TOKYO</span>
-                </a>
+                <div class="icon">
+                    <span class="toggle">☰</span>
+                </div>
+                <div>
+                    <ul class="list-item">
+                        <li><a href="{%url 'home_start'%}">Головна</a></li>
+                        <li><a href="{%url 'halls'%}">Зали</a></li>
+                        <li><a href="{%url 'contacts'%}">Контакти</a></li>
+                        <li><a href="{%url 'booking'%}">Бронювання</a></li>
+                    </ul>
                 </div>
             </nav>
-            <div class="sign-wrap-1">
-                <span class="sign_word">Booking</span>
+            <div class="maincover">
+                <h1 class="maincoverlogo">TOKYO.</h1>
+                <h3>Capture the moment. Preserve it. Revive the Memories.</h3>
+                <button type="button" class="moreinfo">Дізнатись більше</button>
+                <button type="button" class="booknow">Забронювати зараз</button>
             </div>
-
-            {% comment %} <div id="arrow">
-                <a href="#content">
-                <span  class="section"></span>
-                </a>
-            </div> {% endcomment %}
         </header>
-
-        
-        <div align="center">
-
+        <div class="content">
             <h1>Бронювання</h1>
-            <p>Для здійснення бронювання заповінть форму.</p>
+            <p>
+                Для здійснення бронювання заповінть форму.
+            </p>
             <!-- label and input for lastname -->
-            <label for="title"><b>Назва події</b></label>
             <form action="/events/" method="post">
                 {% csrf_token %}
+                <label for="title"><b>Назва події</b></label>
                 <input
                     type="text"
                     placeholder="Введіть назву події"
@@ -118,11 +117,11 @@
                 <!-- label and input for email -->
                 <label for="phonenumber"><b>Номер телефону</b></label>
                 <input
-                type="text"
-                name="phonenumber"
-                id="phonenumber"
-                placeholder="Введіть номер телефону"
-                required
+                    type="text"
+                    name="phonenumber"
+                    id="phonenumber"
+                    placeholder="Введіть номер телефону"
+                    required
                 /><br>
 
                 <!-- label and input for email -->
@@ -133,7 +132,7 @@
                     id="email"
                     placeholder="Введіть email"
                     required
-                /> <br>
+                /><br>
 
                  <!-- label and input for email -->
                  <label><b>Зала</b></label>
@@ -141,28 +140,37 @@
                     <option disabled="disabled" selected="selected" required>Виберіть зал</option>
                     <option value="hall1">Зал 1 (1000 грн за годину)</option>
                     <option value="hall2">Зал 2 (1500 грн за годину)</option>
-                  </select> <br>
+                </select> <br>
 
-                  <!-- label and input for email -->
-                  <label><b>Вкажіть початок бронювання</b></label>
-                  <input type="datetime-local" id="localdate" name="datebegin" required />
-                  <br>
+                <!-- label and input for email -->
+                <label><b>Вкажіть початок бронювання</b></label>
+                <input 
+                    type="datetime-local" 
+                    id="localdate" 
+                    name="datebegin" 
+                    required
+                /><br>
 
-                  <!-- label and input for email -->
-                  <label><b>Вкажіть кінець бронювання</b></label>
-                  <input type="datetime-local" id="localdate" name="dateend" required />
-                  <br>
+                <!-- label and input for email -->
+                <label><b>Вкажіть кінець бронювання</b></label>
+                <input 
+                    type="datetime-local" 
+                    id="localdate" 
+                    name="dateend" 
+                    required 
+                /><br>
 
-                   <!-- label and input for email -->
+                <!-- label and input for email -->
                 <label for="description"><b>Опис</b></label>
                 <textarea
-                type="text"
-                name="description"
-                id="description"
-                placeholder="Вкажіть опис події"
-                required
+                    type="text"
+                    name="description"
+                    id="description"
+                    placeholder="Вкажіть опис події"
+                    required
                 ></textarea><br>
-                <input type="submit" value="Забронювати">
+                
+                <input type="submit" value="Забронювати"/>
             </form>
 
             <form action="/events/" method="post" class="modal" id="add-event-form">
@@ -244,20 +252,24 @@
                 required
                 ></textarea><br>
                 <input type="submit" value="Забронювати">
-            </form>
-            <div class="container">
-                <h1>Olha Rud datepicker</h1>
-                <div>
-                    <p>Виберіть дату/час:</p>
-                    <div id="selected-dates"></div>
-                    {{ calendar }}
-                </div>
+            </form>  
+            
+            <div class="table-container">
+                {{ calendar }}
             </div>
-        </div>
-        <footer> 
-                developer: Olha Rud<br>
-                e-mail: ok23.rud.olha@vtc.vn.ua
+        </div> 
+         
+              
+                   
+            
+        <footer>
+            <p class="sign">© 2023 Tokyo., Inc</p>
+            <ul class="nav-footer-item">
+                <li><b>Contact us</li>
+                <li>tokyo.photostudio@gmail.com</li>
+                <li>+99 35-233-599</li>
+            </ul>
+           
         </footer>
-        
     </body>
 </html>

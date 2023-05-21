@@ -11,7 +11,7 @@ class HomeStartView(View):
         return HttpResponse(template)
 
 
-class ScheduletView(View):
+class BookingView(View):
     def get(self, request):
-        template = render_to_string('try_schedule.html')
+        template = render_to_string('booking.html')
         return HttpResponse(template)

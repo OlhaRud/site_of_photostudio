@@ -38,15 +38,19 @@ header {
 }
 
 .hall-page{
-  background-image: url("img/halls/maincover.jpg");
+  
+  background-color: #232323;
+  background-image: url('/static/img/halls/maincover.jpg');
 }
  
 .contacts-page{
-  background-image: url("img/contacts/maincover.jpg");
+  background-color: #232323;
+  background-image: url('/static/img/contacts/maincover.jpg');
 } 
 
-.studio-booking-page{
-  background-image: url("img/main/maincover.jpg");
+.booking-page{
+  background-color: #232323;
+  background-image: url('/static/img/booking/maincover.jpg');
 } 
 
 .maincover {
@@ -154,7 +158,7 @@ footer {
     line-height: 2;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0;
+    margin-top: 100px;
 } 
 
 .nav-footer-item {
@@ -311,14 +315,143 @@ footer {
 /*--- CONTACTS*/
 .map {
   float: right;
-  width: 40%;
+  width: 50%;
   margin-left: 100px;
 }
 
 .map iframe{
   float: right;
   margin-left: 100px;
+  width: 100%;
 }
+
+/* КАЛЕНДАР*/
+
+
+.calendar table{
+    background: white; 
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #ffffff00;
+   
+    table-layout: fixed;
+}
+
+.calendar .month{
+  color:  rgb(35, 35, 35);
+  font-size: 20pt;
+  text-align: left;
+  border: 1px solid white; 
+}
+
+.calendar .mon, .tue, .wed, .thu, .fri {
+  color:  #ffffff;
+  font-size: 15pt;
+  background: #535353; 
+  padding: 20px;
+  text-align: left;
+}
+
+
+.calendar  .sat, .sun {
+  color:  #ffffff;
+  background: #3f3f3f;
+  padding: 10px;
+  font-size: 15pt;
+}
+.calendar li  {
+  background-color: #03c883;
+  color:  #ffffff;
+  vertical-align: top;
+  padding: 10px 5px;
+  font-size: 11pt;
+  list-style-type: none;
+  border-radius:2px;
+  width: 100%;
+  margin: 10px 0px;
+  font-weight: bold;
+}
+
+.calendar td  {
+  color:  #00744c;
+  background: white;
+  height: 150px;
+  vertical-align: top;
+  padding: 10px; text-align: left; /* Выравнивание по левому краю */
+}
+
+
+td,th{
+  border: 1px solid #e1e1e1; /* Параметры рамки */
+  width: 14%;
+}
+
+.table-container { 
+  overflow-x: auto; /* Вмикнути прокрутку по горизонталі */
+  
+  max-width: 100%; /* Обмежити ширину контейнера таблиці до 100% відносно батьківського елемента */
+}
+
+
+
+
+/* іоравіволадІРВЛарфдлуріалдоцуріа */
+form {
+  width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #03c883;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: #3bc494;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+}
+
+
+
+
+
+
 
 /*   Start MEDIA QUERY   */
   
@@ -376,7 +509,7 @@ nav {
 }
 
 .maincover h1 {
-    font-size: 60px;
+    font-size: 30pt;
     font-weight: bold;
 }
 
@@ -386,11 +519,12 @@ nav {
     font-size: 9pt;
     padding: 3px;
     font-weight: bold;
+  margin: 20px 40px 0px 0px;
 }
-    
+
 .booknow{
     color:#fff;
-    margin: -80px 5px 0px 0px ;
+    margin: -20px 5px 0px 0px ;
     border:1px solid #fff;
     background-color: #0b0e0b76;
 }
@@ -551,86 +685,74 @@ footer {
   
 
 /*--- Мапа (main 809px)*/
+.map {
+  width: 100%;
+  margin-left: 0px;
+}
   .map iframe{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     margin-left: 0px;
     width: 100%;
   }
-}
-  
+
+
+
+
+
+  /* КАЛЕНДАР*/
 
 /* КАЛЕНДАР*/
 
-  table{
-    margin: 80px;
-  }
-  .calendar table{
-      background: white; 
-      text-align: left;
-      margin: 122px;
-      border-collapse: collapse;
-      border: 1px solid #ffffff00;
-      align-self: center;
-  }
+
+.calendar table{
+    border-collapse: collapse;
+    background: white; 
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #ffffff00;
+    align-self: center;
+    table-layout: fixed;
+}
+
+.calendar .month{
+  color:  #3c3c3c;
+  max-width: 10%;
+  font-size: 20pt;
+  text-align: left;
+}
+
+.calendar .mon, .tue, .wed, .thu, .fri {
+  font-size: 15pt;
+  text-align: center; 
+}
+
+
+.calendar  .sat, .sun {
+  font-size: 15pt;
+  text-align: center; 
+}
+
+
+
+
+
+
+
+
+
+.table-container { 
+overflow-x: auto; /* Вмикнути прокрутку по горизонталі */
+
+max-width: 100%; /* Обмежити ширину контейнера таблиці до 100% відносно батьківського елемента */
+
+}
   
-  .calendar .month{
-    color:  #2a5eff;
-    padding: 10px;
-    font-size: 20pt;
-    text-align: center;
-    border: 1px solid white; 
-  }
   
-  .calendar .mon, .tue, .wed, .thu, .fri {
-    color:  #ffffff;
-    width: 14%; 
-    font-size: 15pt;
-    background: #5f00ff; 
-    
-  }
+
+}
   
-  
-  .calendar  .sat, .sun {
-    color:  #ffffff;
-    background: #3e00a7;
-    width: 14%; 
-    padding: 10px;
-    font-size: 15pt;
-  }
-  
-  .calendar td  {
-    color:  #37509d;
-    width: 14%;
-    background: white;
-    height: 150px;
-    vertical-align: top;
-    
-    padding: 10px;
-  }
-  
-   TD, TH {
-      padding: 3px; /* Поля вокруг содержимого таблицы */
-      border: 1px solid #e1e1e1; /* Параметры рамки */
-      text-align: left; /* Выравнивание по левому краю */
-     }
-  
-  .calendar td  {
-    color:  #37509d;
-    width: 14%;
-    background: white;
-    height: 150px;
-    vertical-align: top;
-  }
-  
-  .calendar td ul {
-    color:  #ffffff;
-    background: #3e00a7;
-    vertical-align: top;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin:5px;
-    font-size: 11pt;
-    list-style-type: none;
-    border-radius:2px;
-  }
+
 
   
