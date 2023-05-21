@@ -9,8 +9,9 @@
         
         
         <!--java script section-->
-        <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
-        <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'  %}"></script>
+       <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'  %}"></script>
+       <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <!--jquery script section-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -18,6 +19,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <script>
+        //Show more button 
+        function scrollToContent() {
+            const contentSection = document.querySelector('.content');
+            
+            if (contentSection) {
+              contentSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+
+        //Show Event
         function showevent(id){
             csrftoken = $("input[name='csrfmiddlewaretoken']").val();
 
@@ -51,6 +62,15 @@
 
           }
 
+
+
+          function scrollToTableContainer() {
+            const tableContainer = document.querySelector('.table-container');
+            
+            if (tableContainer) {
+              tableContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
     </script>
     <body>
         <header class="booking-page">
@@ -71,17 +91,21 @@
                 </div>
             </nav>
             <div class="maincover">
-                <h1 class="maincoverlogo">TOKYO.</h1>
+                <h1 class="maincoverlogo">Бронювання.</h1>
                 <h3>Capture the moment. Preserve it. Revive the Memories.</h3>
-                <button type="button" class="moreinfo">Дізнатись більше</button>
-                <button type="button" class="booknow">Забронювати зараз</button>
+                <button type="button" class="moreinfo" onclick="scrollToContent()">Забронювати зараз</button>
+                <button type="button" class="booknow" onclick="scrollToTableContainer()">Переглянути календар</button>
             </div>
         </header>
         <div class="content">
-            <h1>Бронювання</h1>
+            <h2 name="title-booking">Бронювання</h2>
             <p>
-                Для здійснення бронювання заповінть форму.
+                Наша фотостудія пропонує зручну можливість онлайн-бронювання. 
+                Щоб здійснити бронювання, будь ласка, заповніть наведену нижче форму.
+                Після цього Ви зможете переглянути всі заброньовані на поточний місяць
+                події та редагувати свої записи в календарі. 
             </p>
+           
             <!-- label and input for lastname -->
             <form action="/events/" method="post">
                 {% csrf_token %}
@@ -176,6 +200,7 @@
             <form action="/events/" method="post" class="modal" id="add-event-form">
                 {% csrf_token %}
                 <input type="hidden" id="id_pk" name="id_pk">
+                <label for="title"><b>Назва події</b></label>
                 <input
                     type="text"
                     placeholder="Введіть назву події"
@@ -251,7 +276,7 @@
                 placeholder="Вкажіть опис події"
                 required
                 ></textarea><br>
-                <input type="submit" value="Забронювати">
+                <input type="submit" value="Змінити">
             </form>  
             
             <div class="table-container">

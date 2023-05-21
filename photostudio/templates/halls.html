@@ -17,6 +17,15 @@
         <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
+    <script>
+        function scrollToContent() {
+            const contentSection = document.querySelector('.content');
+            
+            if (contentSection) {
+              contentSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+      </script>
     <body>
         <header class="hall-page">
             <nav>
@@ -38,8 +47,8 @@
             <div class="maincover">
                 <h1 class="maincoverlogo"> Зали.</h1>
                 <h3>Capture the moment. Preserve it. Revive the Memories.</h3>
-                <button type="button" class="moreinfo">Дізнатись більше</button>
-                <button type="button" class="booknow">Забронювати зараз</button>
+                <button type="button" class="moreinfo" onclick="scrollToContent()">Дізнатись більше</button>
+                <a href="{%url 'booking'%}"><button type="button" class="booknow">Забронювати зараз</button></a>
            
             </div>
         </header>
@@ -56,7 +65,7 @@
                 </p>
             </div>
 
-            <img src="img/halls/planofstudio.jpg" alt="Фото">
+            <img src="{%static 'img/halls/planofstudio.jpg'%}" alt="Фото">
 
             <div class="section-text-right">
                 <img src="{%static 'img/halls/bighall.jpg' %}" alt="Фото">

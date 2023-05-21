@@ -17,7 +17,15 @@
         <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    
+    <script>
+        function scrollToContent() {
+            const contentSection = document.querySelector('.content');
+            
+            if (contentSection) {
+              contentSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+      </script>
     <body>
         <header class="main-page">
             <nav>
@@ -39,8 +47,8 @@
             <div class="maincover">
                 <h1 class="maincoverlogo">TOKYO.</h1>
                 <h3>Capture the moment. Preserve it. Revive the Memories.</h3>
-                <button type="button" class="moreinfo">Дізнатись більше</button>
-                <button type="button" class="booknow">Забронювати зараз</button>
+                <button type="button" class="moreinfo" onclick="scrollToContent()">Дізнатись більше</button>
+                <a href="{%url 'booking'%}"><button type="button" class="booknow">Забронювати зараз</button></a>
            
             </div>
         </header>
@@ -99,7 +107,7 @@
                         графіком роботи. Ви зможете легко бронювати зал онлайн і
                         вибрати ідеальне середовище для вашої фотосесії.
                     </p>
-                    <button type="button" class="booknow">Забронювати зараз</button>
+                    <a href="{%url 'booking'%}"><button type="button" class="booknow">Забронювати зараз</button></a>
                 </div>    
             </div>
             
@@ -110,7 +118,8 @@
                     <img src="{%static 'img/main/galery3.jpg' %}" alt="Фото">
                     <img src="{%static 'img/main/galery4.jpg' %}" alt="Фото">
                 </div>
-                <button type="button" class="booknow">Переглянути зали</button>
+                <a href="{%url 'halls'%}"><button type="button" class="booknow">Переглянути зали</button></a>
+               
             </div>
         </section>
 

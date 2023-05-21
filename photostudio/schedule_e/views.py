@@ -73,7 +73,7 @@ class EventView(View):
             event.end_time = post.get('dateend')
             event.description = post.get('description')
             event.save()
-        return redirect('schedule')
+        return redirect('booking')
 
 
 class GetEventAJAX(View):

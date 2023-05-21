@@ -201,8 +201,8 @@ footer {
 .content h2 {
   flex: 1;
   font-size: 40pt;
-  margin: 50px 0px;
-}
+  margin: 70px 10px 10px 0px;
+}  
 
 /*--section-text-left (main)*/
 .section-text-left {
@@ -334,7 +334,6 @@ footer {
     border-collapse: collapse;
     border: 1px solid #ffffff00;
    
-    table-layout: fixed;
 }
 
 .calendar .month{
@@ -360,7 +359,7 @@ footer {
   font-size: 15pt;
 }
 .calendar li  {
-  background-color: #03c883;
+  background-color: #373ad1;
   color:  #ffffff;
   vertical-align: top;
   padding: 10px 5px;
@@ -373,7 +372,7 @@ footer {
 }
 
 .calendar td  {
-  color:  #00744c;
+  color:  #262626;
   background: white;
   height: 150px;
   vertical-align: top;
@@ -388,8 +387,9 @@ td,th{
 
 .table-container { 
   overflow-x: auto; /* Вмикнути прокрутку по горизонталі */
-  
   max-width: 100%; /* Обмежити ширину контейнера таблиці до 100% відносно батьківського елемента */
+  margin-top: 10px;
+  padding-top: 100px;
 }
 
 
@@ -429,7 +429,7 @@ input[type="datetime-local"] {
 }
 
 input[type="submit"] {
-  background-color: #03c883;
+  background-color: #373ad1;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -439,7 +439,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #3bc494;
+  background-color: #1f22ae;
 }
 
 .error {
@@ -447,6 +447,7 @@ input[type="submit"]:hover {
   margin-top: 5px;
 }
 
+  
 
 
 
@@ -509,13 +510,13 @@ nav {
 }
 
 .maincover h1 {
-    font-size: 30pt;
+    font-size: 26pt;
     font-weight: bold;
 }
 
 .maincover button{
-    height: 30px;
-    width: 130px;
+    height: 40px;
+    width: 150px;
     font-size: 9pt;
     padding: 3px;
     font-weight: bold;
@@ -560,7 +561,7 @@ footer {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0px 20px 10px 20px;
   background-color: #ffffff;
   font-size: 12pt;
 }
@@ -568,15 +569,22 @@ footer {
 .content h2 {
     flex: 1;
     font-size: 20pt;
-    margin: 20px 0px;
+    margin: 70px 10px 10px 0px;
 }  
 
 .content  p {
   flex: 1;
   line-height: 35px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   display: flex;
 }  
+
+.content  img {
+  flex: 1;
+  line-height: 35px;
+  margin-top: 50px;
+  display: flex;
+} 
 
 /*--- section-text-left (main 809px)*/
 .section-text-left {
@@ -699,8 +707,6 @@ footer {
 
 
 
-
-
   /* КАЛЕНДАР*/
 
 /* КАЛЕНДАР*/
@@ -713,12 +719,10 @@ footer {
     border-collapse: collapse;
     border: 1px solid #ffffff00;
     align-self: center;
-    table-layout: fixed;
 }
 
 .calendar .month{
   color:  #3c3c3c;
-  max-width: 10%;
   font-size: 20pt;
   text-align: left;
 }
@@ -726,6 +730,11 @@ footer {
 .calendar .mon, .tue, .wed, .thu, .fri {
   font-size: 15pt;
   text-align: center; 
+  padding: 0px 50px;
+  position:top ;
+  border-collapse: separate;
+  top: var(--border-width);
+
 }
 
 
@@ -734,20 +743,21 @@ footer {
   text-align: center; 
 }
 
+td,th{
+  width: 400px;
+}
 
 
-
-
-
-
-
+form {
+  width: 100%;
+  margin: 0 auto;
+}
 
 .table-container { 
 overflow-x: auto; /* Вмикнути прокрутку по горизонталі */
 
 max-width: 100%; /* Обмежити ширину контейнера таблиці до 100% відносно батьківського елемента */
-
-}
+margin-top: 10px;}
   
   
 
