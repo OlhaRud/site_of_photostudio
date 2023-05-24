@@ -1,6 +1,5 @@
 # Create your views here.
 from datetime import datetime
-from django.shortcuts import render
 
 from django.views import generic
 from django.views import View
@@ -9,8 +8,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect
 from .models import *
 from .utils import Calendar
-from .forms import EventForm
-from datetime import date
+from django.contrib import messages
 
 
 class CalendarView(generic.ListView):
@@ -38,10 +36,9 @@ class CalendarView(generic.ListView):
             return date(year, month, day=1)
         return datetime.today()
     
-
-# class EventView(generic.ListView):
-#     model = Event
-#     template_name = 'try_schedule.html'
+    class EventView(generic.ListView):
+        model = Event
+        template_name = 'booking.html'
 
 
 class EventView(View):
@@ -49,30 +46,42 @@ class EventView(View):
     def post(self, request):
         post = request.POST
         id_pk = post.get('id_pk')
-        if id_pk is None:
-            title = post.get('title')
-            lastname = post.get('lastname')
-            firstname = post.get('firstname')
-            phonenumber = post.get('phonenumber')
-            email = post.get('email')
-            datebegin = post.get('datebegin')
-            dateend = post.get('dateend')
-            description = post.get('description')
-            event, create = Event.objects.update_or_create(title=title, lastname=lastname, firstname=firstname,
-                                                           phonenumber=phonenumber, email=email, start_time=datebegin,
-                                                           end_time=dateend, description=description, user=request.user)
+        events = Event.objects.filter(start_time__range=(post.get('datebegin'), post.get('dateend')))
+        if len(events) == 0:
+            if id_pk is None:
+                title = post.get('title')
+                lastname = post.get('lastname')
+                firstname = post.get('firstname')
+                phonenumber = post.get('phonenumber')
+                email = post.get('email')
+                datebegin = post.get('datebegin')
+                dateend = post.get('dateend')
+                description = post.get('description')
+
+
+
+                event, create = Event.objects.update_or_create(title=title, lastname=lastname, firstname=firstname,
+                                                               phonenumber=phonenumber, email=email, start_time=datebegin,
+                                                               end_time=dateend, description=description, user=request.user)
+
+            else:
+                event = Event.objects.get(pk=id_pk)
+                if event.user == request.user:
+                    post = request.POST
+                    event.title = post.get('title')
+                    event.lastname = post.get('lastname')
+                    event.firstname = post.get('firstname')
+                    event.phonenumber = post.get('phonenumber')
+                    event.email = post.get('email')
+                    event.start_time = post.get('datebegin')
+                    event.end_time = post.get('dateend')
+                    event.description = post.get('description')
+                    event.save()
+                else:
+                    messages.error(request, 'Not user!')
+            #messages.error(request, 'bla bla bla')
         else:
-            event = Event.objects.get(pk=id_pk)
-            post = request.POST
-            event.title = post.get('title')
-            event.lastname = post.get('lastname')
-            event.firstname = post.get('firstname')
-            event.phonenumber = post.get('phonenumber')
-            event.email = post.get('email')
-            event.start_time = post.get('datebegin')
-            event.end_time = post.get('dateend')
-            event.description = post.get('description')
-            event.save()
+            messages.error(request, 'На цей час у нас заплановані {count} подій'.format(count=len(events)))
         return redirect('booking')
 
 
@@ -90,4 +99,3 @@ class GetEventAJAX(View):
         description = event.description
         return JsonResponse({'id_pk': id_pk, 'title': title, 'lastname': lastname, 'firstname': firstname, 'phonenumber': phonenumber,
                              'email': email, 'datebegin': datebegin, 'dateend': dateend, 'description': description})
-

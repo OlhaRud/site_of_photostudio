@@ -9,8 +9,8 @@
         
         
         <!--java script section-->
-       <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'  %}"></script>
-       <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
+        <script type="text/javascript" src="{%static '/js/jquery-3.7.0.min.js'  %}"></script>
+        <script type="text/javascript" src="{%static '/js/nav.js'%}"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <!--jquery script section-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -71,6 +71,9 @@
               tableContainer.scrollIntoView({ behavior: 'smooth' });
             }
           }
+
+
+
     </script>
     <body>
         <header class="booking-page">
@@ -109,6 +112,7 @@
             <!-- label and input for lastname -->
             <form action="/events/" method="post">
                 {% csrf_token %}
+              
                 <label for="title"><b>Назва події</b></label>
                 <input
                     type="text"
@@ -162,16 +166,22 @@
                  <label><b>Зала</b></label>
                  <select>
                     <option disabled="disabled" selected="selected" required>Виберіть зал</option>
-                    <option value="hall1">Зал 1 (1000 грн за годину)</option>
-                    <option value="hall2">Зал 2 (1500 грн за годину)</option>
+                    <option value="hall1">Великий зал</option>
+                    <option value="hall2">Малий зал</option>
                 </select> <br>
-
+                
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
                 <!-- label and input for email -->
                 <label><b>Вкажіть початок бронювання</b></label>
                 <input 
                     type="datetime-local" 
                     id="localdate" 
                     name="datebegin" 
+                    
+                    min="09:00"
+                    max="18:00"
                     required
                 /><br>
 
@@ -182,8 +192,10 @@
                     id="localdate" 
                     name="dateend" 
                     required 
+                    min="09:00"
+                    max="18:00"
                 /><br>
-
+                
                 <!-- label and input for email -->
                 <label for="description"><b>Опис</b></label>
                 <textarea
@@ -199,6 +211,7 @@
 
             <form action="/events/" method="post" class="modal" id="add-event-form">
                 {% csrf_token %}
+                
                 <input type="hidden" id="id_pk" name="id_pk">
                 <label for="title"><b>Назва події</b></label>
                 <input
@@ -253,18 +266,22 @@
                  <label><b>Зала</b></label>
                  <select>
                     <option disabled="disabled" selected="selected" required>Виберіть зал</option>
-                    <option value="hall1">Зал 1 (1000 грн за годину)</option>
-                    <option value="hall2">Зал 2 (1500 грн за годину)</option>
+                    <option value="hall1">Великий зал</option>
+                    <option value="hall2">Малий зал</option>
                   </select> <br>
-
+                  {% for message in messages %}
+                  {{ message }}
+                   {% endfor %}
                   <!-- label and input for email -->
                   <label><b>Вкажіть початок бронювання</b></label>
-                  <input type="datetime-local" id="datebegin" name="datebegin" required />
+                  <input type="datetime-local" id="datebegin" name="datebegin" required min="09:00"
+                  max="18:00"/>
                   <br>
 
                   <!-- label and input for email -->
                   <label><b>Вкажіть кінець бронювання</b></label>
-                  <input type="datetime-local" id="dateend" name="dateend" required />
+                  <input type="datetime-local" id="dateend" name="dateend" min="09:00"
+                  max="18:00"required />
                   <br>
 
                    <!-- label and input for email -->
