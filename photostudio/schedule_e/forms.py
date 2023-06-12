@@ -8,7 +8,7 @@ class EventForm(forms.Form):
     firstname = forms.CharField(max_length=200)
     phonenumber = forms.CharField()
     email = forms.EmailField(max_length=200)
-    hall = forms.CharField(max_length=200)
+    hall = forms.CharField()
     start_time = forms.DateTimeField()
     end_time = forms.DateTimeField()
     description = forms.CharField(max_length=200)
